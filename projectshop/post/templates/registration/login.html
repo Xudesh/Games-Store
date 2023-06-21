@@ -1,0 +1,30 @@
+{% extends 'fall.html' %}
+
+{% block title %}
+Log-in
+{% endblock %}
+
+
+{% block content %}
+  <h1>Войти в аккаунт</h1>
+  {% if form.errors %}
+    <p>
+      Логин или пароль не совпадают
+      Пожалуйста попробуйте снова
+    </p>
+  {% else %}
+  <p>
+    Пожалуйста, проверьте логин или пароль
+  </p>
+  {% endif %}
+  <div class="login-form">
+    <form action="{% url 'login' %}" method="post">
+      <h3>Войти</h3>
+      {% csrf_token %}
+      {{form.as_p}}
+      <p>
+          <input type="submit" value="Войти"/>
+      </p>
+      <a href="{% url 'password_change'  %}">Забыли пароль?</a>
+      <a href="{% url 'register'  %}">Регистрация</a>
+{% endblock %}

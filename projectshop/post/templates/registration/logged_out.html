@@ -1,0 +1,11 @@
+{% extends 'fall.html' %}
+
+{% block title %}
+Log-out
+{% endblock %}
+
+{% block content %}
+    <h1>Выйти</h1>
+    <p>Вы вышли из аккаунта</p>
+    <a href="{% url 'login' %}">Войти снова</a>
+{% endblock %}

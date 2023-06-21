@@ -1,0 +1,14 @@
+{% extends 'fall.html' %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block content %}
+    <h1>Создать новый аккаунт</h1>
+    <p>Зарегистрируйтесь</p>
+    <form method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Создать"></p>
+    </form>
+    
+{% endblock %}

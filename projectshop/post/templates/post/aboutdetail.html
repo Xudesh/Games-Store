@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{post.image.url}}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+            <h2 class="text-sm title-font text-gray-500 tracking-widest">QARAQALPAQok</h2>
+            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{post.name}}</h1>
+            <p class="leading-relaxed">{{post.description}}</p>
+            <h3>{{ post.price }}$</h3>
+            <div class="flex">
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="{% url 'login' %}">Buy</a></button>
+                <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                  </svg>
+                </button>
+            </div>
+            </div>
+
+            <section class="text-gray-600 body-font">
+              <div class="container px-5 py-24 mx-auto">
+                <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Comments</h1>
+                {% for comment in comments %}
+                <div class="flex flex-wrap -m-4">
+                  <div class="p-4 md:w-1/2 w-full">
+                    <div class="h-full bg-gray-100 p-8 rounded">                   
+                      <p class="leading-relaxed mb-6">{{comment.text}}</p>
+                      <a class="inline-flex items-center">
+                        <img alt="testimonial" src="{{comment.image.url}}" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                        <span class="flex-grow flex flex-col pl-4">
+                          <span class="title-font font-medium text-gray-900">{{comment.user}}</span>
+                          <span class="text-gray-500 text-sm">{{comment.date}}</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </section>
+          </div>
+        </div>  
+    </section>
+{% endblock %}
