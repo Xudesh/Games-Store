@@ -1,4 +1,4 @@
-# Django-login
+# Games-Store
 #mini Site
 ____
 *This is Django and pattern project*
